@@ -67,5 +67,5 @@ meltedDataSet$value <- as.numeric(meltedDataSet$value);
 meanDataSet <- dcast(meltedDataSet, ActivityLabel + SubjectId ~ variable, mean);
 
 # Saving tidy data set
-write.table(meanDataSet, file = "finalTidyMeanDataSet.txt", sep="\t")
+write.table(meanDataSet, file = "finalTidyMeanDataSet.txt", row.names = FALSE, sep="\t")
 
