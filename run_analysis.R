@@ -61,11 +61,11 @@ colnames(relevantColumnsDataSet) <- columnNames;
 # Importing Library
 library(reshape2)
 # Melting data set to make it easier to get means
-meltedDataSet <- melt(relevantColumnsDataSet, id = c("SubjectId", "ActivityLabel"));
+meltedDataSet <- melt(relevantColumnsDataSet, id = c("SubjectId", "ActivityId"));
 meltedDataSet$value <- as.numeric(meltedDataSet$value);
 # Getting means data set
-meanDataSet <- dcast(meltedDataSet, ActivityLabel + SubjectId ~ variable, mean);
+meanDataSet <- dcast(meltedDataSet, ActivityId + SubjectId ~ variable, mean);
 
 # Saving tidy data set
-write.table(meanDataSet, file = "finalTidyMeanDataSet.txt", row.name = FALSE, sep="\t")
+write.table(meanDataSet, file = "finalTidyMeanDataSet.txt", row.name=FALSE, sep="\t")
 
